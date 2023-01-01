@@ -35,16 +35,30 @@ const images = [
 // console.log(picList);
 // galleryEL.append(...picList);
 
+// const galleryEL = document.querySelector(".gallery");
+// galleryEL.style.display = "flex";
+// galleryEL.style.listStyle = "none";
+
+// const galleryRef = images.map((element) => {
+//   return `<li><img src="${element.url}" alt="${element.alt}"
+//   width = 100%; height = 100%;></li>`;
+// });
+
+// const galleryRefString = galleryRef.join("");
+// console.log(galleryRefString);
+
+// galleryEL.insertAdjacentHTML("afterbegin", galleryRefString);
+
 const galleryEL = document.querySelector(".gallery");
 galleryEL.style.display = "flex";
 galleryEL.style.listStyle = "none";
 
-const galleryRef = images.map((element) => {
-  return `<li><img src="${element.url}" alt="${element.alt}" 
-  width = 100%; height = 100%;></li>`;
-});
+const galleryRef = images
+  .map(
+    ({ url, alt }) =>
+      `<li data><img src="${url}" alt="${alt}" 
+  width = 100%; height = 100%;></li>`
+  )
+  .join("");
 
-const galleryRefString = galleryRef.join("");
-console.log(galleryRefString);
-
-galleryEL.insertAdjacentHTML("afterbegin", galleryRefString);
+galleryEL.insertAdjacentHTML("afterbegin", galleryRef);
