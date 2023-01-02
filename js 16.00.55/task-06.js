@@ -6,10 +6,18 @@
 
 const input = document.querySelector("#validation-input");
 
+// input.addEventListener("blur", () => {
+//   if (input.value.length === Number(input.dataset.length)) {
+//     input.classList.add("valid");
+//     input.classList.remove("invalid");
+//   } else {
+//     input.classList.add("invalid");
+//     input.classList.remove("valid");
+//   }
+// });
+
 input.addEventListener("blur", () => {
-  if (input.value.length === Number(input.dataset.length)) {
-    input.classList.add("valid");
-    input.classList.remove("invalid");
-  } else input.classList.add("invalid");
-  input.classList.remove("valid");
+  if (input.value.length !== Number(input.dataset.length)) {
+    input.classList.add(`invalid`);
+  } else input.classList.replace(`invalid`, `valid`);
 });
